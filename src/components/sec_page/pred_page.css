@@ -1,0 +1,328 @@
+body{
+    background-color: #1a1a1a; /* Darker background for contrast */
+    font-family: 'Arial', sans-serif;
+    /* overflow: hidden; */
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.md_name {
+    font-size: 8vh;
+    margin: 8vh 1vw 8vh 0;
+    background-color: rgba(60, 60, 60, 0.8);    color: black;
+    color: #f39c12;
+    border-radius: 1.7vw;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 2vh;text-align: center;
+}
+.md_nm{
+    width: 35vw;
+    font-weight: 600;
+}
+.txt_div{
+    gap: 1.5vh;
+    display: grid;
+    color: #d1d1d1; 
+}
+.cl_nm{height: 10vh;
+    color: #f39c12;
+    width: 14vw;
+    font-size: 4vh;
+    font-weight: 500;
+    margin-left: 2vw;
+    font-family: 'Arial', sans-serif;
+}
+.name2{
+    font-size: 4vh;
+    margin: 0;
+    width: 20vw;
+    color:#f0f0f0
+}
+
+.main_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.clas{    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
+    margin-top: 5vh;
+
+}
+.pred{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wid{
+    width: 90%;
+    background-color: #464D53 ;
+    height: 60vh;
+    border-top-left-radius: 1.5vh;
+    border-top-right-radius: 1.5vh;
+}
+
+.img{
+    width: 27vw;
+    height: 36vh;
+    background-color: #3c3f45;
+    position: relative;
+    border-radius: 1.8vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid #f39c12;
+    border-radius: 1.8vw;
+    
+  }
+  
+.namee{
+    margin-bottom: 2vh;
+    font-size: 2.5vh;
+    font-weight: 600;
+    text-transform: uppercase;
+    /* background-color: rgba(45, 43, 43, 0.2);
+    width: auto; */
+    color: #e0e0e0;
+
+}
+
+
+/* Container for the buttons */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    gap: 4vh;
+}
+
+/* Common styles for both buttons */
+.button {
+    font-size: 4vh;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+    margin: 10px 0;
+    position: relative;
+}
+
+/* Hover text styles */
+.button::after {
+    content: attr(data-hover-text);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap; 
+}
+
+/* Show hover text on hover */
+.button:hover::after {
+    opacity: 1;
+}
+
+/* Upload button styles */
+.upload-button {
+    font-size: 4vh;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.upload-button::before {
+    background-color: #4CAF50; /* Green */
+    content: 'UPLOAD';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    width: 10vw;
+    border-radius: .89vh
+  }
+
+.upld_functn {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
+
+
+
+.upload-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Predict button styles */
+.predict-button {
+    background-color: #008CBA; /* Blue */
+    color: white;
+}
+
+.predict-button:hover {
+    background-color: #007bb5;
+    transform: scale(1.05);
+}
+
+
+
+
+/* Blinking green light animation */
+@keyframes blink {
+    0%, 100% {
+        background-color: rgba(0, 255, 0, 0.5); /* Light green */
+    }
+    50% {
+        background-color: rgba(0, 255, 0, 1); /* Full green */
+    }
+}
+
+/* Common styles for img div */
+.bck_div{
+    position: absolute;
+
+    border-radius: 50%; /* Make it a circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(49 153 49 / 29%); /* Initial light green */
+    animation: blink 1s infinite; /* Blinking animation */
+    color: white; /* Text color */
+    font-weight: bold;
+z-index:0;
+    filter: blur(100px);
+    
+}
+.dg_bck_div{
+    height: 35vh;
+    width: 45vh;
+    top: 38vh;
+    right: 6vw;
+
+}
+.ct_bck_div{
+    height: 35vh;
+    width: 45vh;
+    left: 10vw;
+    top: 40vh;
+
+}
+.upld_functn{
+    border-radius: 1vh;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width:500px) {
+    body{
+        align-items: center;
+    }
+    
+    .md_nm {
+        font-size: 5vh;
+        width: auto;
+    }
+
+
+.clas{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+
+}
+.txt_div {
+    order: -1; /* Place it above the other elements */
+    margin-bottom: 1rem; /* Optional: Add some spacing */
+  }
+
+  .ct_block {
+    order: 0; /* Default position below .txt_div */
+  }
+.wid{
+    width: 80%;
+    background-color: #464D53 ;
+    height: 145vh;
+    border-top-left-radius: 1.5vh;
+    border-top-right-radius: 1.5vh;}
+
+.img{
+    width: 70vw
+}
+.cl_nm {
+    width: 80%;
+    margin: 2vh;
+    
+}
+.name2 {
+    margin: 1vh;
+    width: 80%;
+
+}
+.ct_block{
+display: grid
+;
+    justify-content: center;
+}
+.dg_block{
+display: grid
+;margin-top: 4vh;
+    justify-content: center;
+}
+.wid{
+    position: relative;
+}
+.upload-button::before {
+    width: 34vw;
+    font-size: 3vh;
+    margin-top: 1vh;
+}
+.button::after {
+    width: 60vw;
+    font-size: 3vw;
+}
+
+.dg_bck_div {
+
+    top: 92vh;
+    right: -2vw;
+    height: 30vh;
+    width: 40vh;
+    
+}
+.ct_bck_div{
+    height: 30vh;
+    width: 40vh;
+    top: 48vh;
+    left: -2vh;
+}
+
+.last_test{
+    margin: 3vh;
+    height: 5vh;
+}
+}

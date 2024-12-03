@@ -1,0 +1,165 @@
+/* General Styling */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  /* background: linear-gradient(135deg, #1e3c72, #2a5298); */
+  color: #fff;
+}
+
+/* Parent Container */
+.parent-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200vh;
+  padding: 20px;
+  position: relative;
+}
+
+.parent-container.blur::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+  backdrop-filter: blur(8px); /* Blur effect */
+  z-index: 1;
+}
+
+/* Header Styling */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  z-index: 2; /* Ensure content appears above blur */
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.2rem;
+  color: #d0d0d0;
+}
+
+/* Model Box Styling */
+.model-box {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  padding: 30px;
+  width: 90%;
+  max-width: 800px;
+  text-align: left;
+  transform: scale(0); /* Hidden state */
+  opacity: 0;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  z-index: 2;
+  position: relative;
+}
+
+.model-box.popup {
+  transform: scale(1); /* Visible state */
+  opacity: 1;
+}
+
+.model-name {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.description-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #f39c12;
+}
+
+.model-description {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.model-list {
+  list-style: disc;
+  margin-left: 20px;
+  color: #ccc;
+}
+
+/* Button Section Styling */
+.button-section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #fff;
+  background: #2a5298;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #1e3c72;
+}
+
+.download-btn {
+  background: #27ae60;
+}
+
+.download-btn:hover {
+  background: #1d9453;
+}
+
+.test-btn {
+  background: #3498db;
+}
+
+.test-btn:hover {
+  background: #2874a6;
+}
+
+
+
+@media screen and (max-width:500px) {
+.header{
+margin-top: -30vh;
+}
+.header h1 {
+  font-size: 2.8vh;
+}
+.header p {
+  font-size: 1.8vh;
+}
+/* .model-box {
+  max-width: 64vw;
+}
+ */
+ .model-name {
+  font-size: 2vh;
+ }
+
+ .description-title {
+  font-size: 2vh;
+
+}
+
+.model-description {
+font-size: 1.5vh;}
+
+
+
+
+
+
+
+} 
