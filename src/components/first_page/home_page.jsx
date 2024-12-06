@@ -13,16 +13,16 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className={`parent-container ${isPopupVisible ? 'blur' : ''}`}>
+    <div className={`paren-conainer ${isPopupVisible ? 'blr' : ''}`}>
       {/* Header Section */}
-      <div className="header">
+      <div className="heder">
         <h1>Welcome to CNN Classifier v1.0</h1>
         <p>Explore our state-of-the-art deep learning model!</p>
       </div>
 
       {/* Main Model Info Section */}
-      <div className={`model-box ${isPopupVisible ? 'popup' : ''}`}>
-        <h2 className="model-name">Model Name: CNN Classifier Model_v-03</h2>
+      <div className={`mdl-bx ${isPopupVisible ? 'pup' : ''}`}>
+        <h2 className="mdl-nm">Model Name: CNN Classifier Model_v-03</h2>
         <h3 className="description-title">Description:</h3>
         <p className="model-description">
           This CNN classifier model is a deep learning model specifically trained to distinguish between images of cats and dogs. 
@@ -63,7 +63,7 @@ const HomePage = () => {
 
         {/* Buttons Section */}
         <div className="button-section">
-          <a href="/path/to/your/model.h5" download className="btn download-btn"> Download Model
+          <a href="https://github.com/shardsnaik/Dog_vs_Cat_Classifier/blob/main/artifacts/trained_model/model_v-03_cpy.h5" download className="btn download-btn"> Download Model
           </a>
           <Link to="/pred" className="btn test-btn">
             Test Model

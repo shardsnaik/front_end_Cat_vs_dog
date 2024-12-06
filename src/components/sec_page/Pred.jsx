@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import './pred_page.css'
+import { dockerlink, githublink, flasklink } from './links'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCat } from '@fortawesome/free-solid-svg-icons'
 import { faDog } from '@fortawesome/free-solid-svg-icons'
+
+import {ToastContainer, toast, Bounce } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 const Pred = () => {
 
@@ -11,6 +16,42 @@ const Pred = () => {
   const [prediction, setprediction] = useState(null)
   const [loading, setloading] = useState(false)
   const [showimage, setshowimage] = useState(null)
+  const [showPopup, setShowPopup] = useState(false)
+
+const tostmes =()=>{
+    toast.info('Backend API not curently available!', {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+      } )
+  }
+  const options = () => {
+    toast.warn(`Important Notice:
+       Backend Server Issues
+
+We are currently experiencing issues with our backend server hosted on Render due to the large size of our model. To ensure uninterrupted service, we kindly request your cooperation in using our Docker public image. You can find the Docker image and additional details on our GitHub repository.
+
+
+
+
+Thank you for your understanding and cooperation.`, {
+      position: "top-center",
+      autoClose: 15000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+  };
 
 
   const handlefilechange = (event) =>{
@@ -43,19 +84,25 @@ const Pred = () => {
     })
 
     const data = await response.json();
-      setprediction(data);
+        setprediction(data);
+
     } catch (error) {
       console.error('Error:', error);
+      tostmes()
+      options()
+      togglePopup()
     } finally {
       setloading(false);
     }
   };
 
-
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
 
   return (
     <div>
-
+<ToastContainer />
     <div className="main_div">
 
         <div className='md_name md_nm'>model_v-03.h5</div>
@@ -113,7 +160,34 @@ const Pred = () => {
    
 
     <div class="button predict-button" onClick={handlepred} >Predict</div>
+    <div className='blur__div blur_div_sz'></div>
+   
 </div>
+<div>
+      {showPopup &&  (<div className="popup">
+          <div className="popup-inner">
+            <h2>Important Notice: Backend Server Issues</h2>
+            <p>
+              We are currently experiencing issues with our backend server hosted on Render due to the large size of our model. To ensure uninterrupted service, we kindly request your cooperation in using our Docker public image. You can find the Docker image and additional details on our GitHub repository.
+            </p>
+            <p className='lnk_f' >
+              <strong onClick={dockerlink} >Click Here for Docker Image Link</strong> 
+            </p>
+            <p className='lnk_f' >
+              <strong onClick={flasklink}>Click Here for Flask Backend Repository</strong>
+            </p>
+            <p className='lnk_f' >
+              <strong onClick={githublink}>Click Here for GitHub Repository</strong>
+            </p>
+            
+          </div>
+        </div>
+      )}
+
+
+
+    </div>
+
 {loading && <p>Loading...</p>}
           {prediction && (
             <div className="result">
@@ -123,6 +197,7 @@ const Pred = () => {
           )}
         </div>
     </div>
+    
     </div>
   )
 }

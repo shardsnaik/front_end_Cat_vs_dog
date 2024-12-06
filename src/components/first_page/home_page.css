@@ -7,7 +7,7 @@ body {
 }
 
 /* Parent Container */
-.parent-container {
+.paren-conainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +17,7 @@ body {
   position: relative;
 }
 
-.parent-container.blur::before {
+.paren-conainer.blr::before {
   content: '';
   position: absolute;
   top: 0;
@@ -30,24 +30,24 @@ body {
 }
 
 /* Header Styling */
-.header {
+.heder {
   text-align: center;
   margin-bottom: 40px;
   z-index: 2; /* Ensure content appears above blur */
 }
 
-.header h1 {
+.heder h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
-.header p {
+.heder p {
   font-size: 1.2rem;
   color: #d0d0d0;
 }
 
 /* Model Box Styling */
-.model-box {
+.mdl-bx {
   background: rgba(0, 0, 0, 0.8);
   border-radius: 15px;
   padding: 30px;
@@ -61,12 +61,12 @@ body {
   position: relative;
 }
 
-.model-box.popup {
+.mdl-bx.pup {
   transform: scale(1); /* Visible state */
   opacity: 1;
 }
 
-.model-name {
+.mdl-nm {
   font-size: 2rem;
   margin-bottom: 20px;
 }
