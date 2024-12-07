@@ -4,7 +4,7 @@ import './index.css';
 import './App.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Pred from '../src/components/sec_page/Pred'
+import Pred from '../src/components/sec_page/pred'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 
